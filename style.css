@@ -1,194 +1,118 @@
-/* 🌸 Reset & basics */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  background: #ffb6c1;
+}
+
+/* Background */
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#bgCanvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.color-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, rgba(255,182,193,0.7), rgba(255,105,180,0.3), rgba(255,20,147,0.1));
+  animation: bgGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes bgGlow {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.4); }
+}
+
+/* Video */
+.video-container {
+  position: relative;
+  width: 100%;
   height: 100vh;
-  font-family: "Poppins", sans-serif;
+  z-index: 5;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  color: #fff;
-  background: linear-gradient(120deg, #ffb6e6, #e0aaff, #ffc8dd);
-  background-size: 300% 300%;
-  animation: gradientFlow 15s ease infinite;
 }
 
-/* 🌈 Smooth color shift */
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* 💫 Soft glowing gradient blobs */
-.bg-blobs {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.blob {
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  filter: blur(140px);
-  opacity: 0.55;
-  animation: floatBlob 22s ease-in-out infinite alternate;
-}
-
-.blob1 { background: #ff9edb; top: 10%; left: 15%; animation-delay: 0s; }
-.blob2 { background: #d0a2ff; bottom: 15%; right: 20%; animation-delay: 5s; }
-.blob3 { background: #ffb6d9; top: 60%; left: 40%; animation-delay: 10s; }
-
-@keyframes floatBlob {
-  from { transform: translateY(0) scale(1); }
-  to { transform: translateY(-40px) scale(1.1); }
-}
-
-/* ✨ Floating hearts & sparkles */
-.particles {
-  position: fixed;
-  inset: 0;
-  z-index: 4;
-  pointer-events: none;
-}
-
-.heart, .sparkle {
-  position: absolute;
-  opacity: 0.8;
-  animation: floatUp linear infinite;
-}
-
-.heart {
-  width: 20px;
-  height: 20px;
-}
-
-.sparkle {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff 0, #ffd6f2 40%, transparent 70%);
-}
-
-@keyframes floatUp {
-  from { transform: translateY(100vh) scale(0.8); opacity: 0; }
-  50% { opacity: 1; }
-  to { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-}
-
-/* 💖 Light rays */
-.light-rays {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  background: radial-gradient(ellipse at center, rgba(255,255,255,0.07), transparent 70%),
-              linear-gradient(60deg, rgba(255,200,255,0.04), transparent 60%),
-              linear-gradient(-60deg, rgba(255,180,255,0.05), transparent 70%);
-  mix-blend-mode: screen;
-}
-
-/* 🎬 Main video card */
-.card {
-  position: relative;
-  z-index: 10;
-  width: min(400px, 94vw);
-  height: min(90vh, 720px);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(15, 12, 30, 0.35);
-  backdrop-filter: blur(6px) saturate(110%);
-}
-
-/* 🎥 Video (vertical) */
-video#mainVideo {
-  width: 100%;
+video {
+  width: auto;
   height: 100%;
-  object-fit: cover;
-  border-radius: 18px;
-  filter: brightness(1.05) saturate(1.15);
+  border-radius: 10px;
+  box-shadow: 0 0 60px rgba(255, 182, 193, 0.8);
+  object-fit: contain;
+  z-index: 5;
 }
 
-/* 🩷 Overlay text */
-.overlay {
+/* Overlay Text */
+.overlay-text {
   position: absolute;
-  left: 18px;
-  top: 18px;
-  z-index: 20;
-  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  top: 10%;
+  text-align: center;
+  color: white;
+  z-index: 10;
+  text-shadow: 0 0 15px hotpink, 0 0 25px violet;
 }
 
-.title {
-  font-size: clamp(24px, 5vw, 40px);
-  font-weight: 700;
-  background: linear-gradient(90deg, #fff, #ffbdf0, #ffe3f6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: fadeIn 2s ease-in-out;
+.overlay-text h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  animation: fadeIn 3s ease-in-out;
 }
 
-.subtitle {
-  margin-top: 8px;
-  font-size: clamp(14px, 2vw, 16px);
-  opacity: 0.95;
-  max-width: 85%;
-  animation: fadeIn 2.5s ease-in-out;
+.overlay-text p {
+  font-size: 1.2em;
+  animation: fadeIn 5s ease-in-out;
 }
 
-/* 💞 Footer */
-footer {
-  position: fixed;
-  bottom: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  font-size: 14px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 20;
-}
-
-.heart-emoji {
-  animation: heartBeat 2s infinite;
-}
-
-@keyframes heartBeat {
-  0%, 100% { transform: scale(1); }
-  15% { transform: scale(1.15); }
-  40% { transform: scale(1.05); }
-}
-
-/* 🌟 Fade-in text */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/* 📱 Responsive full screen on phones */
-@media (orientation: portrait) {
-  .card {
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
-    box-shadow: none;
-  }
-  video#mainVideo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+/* Unmute Button */
+#unmuteBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 105, 180, 0.85);
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+#unmuteBtn:hover {
+  background: rgba(255, 105, 180, 1);
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  z-index: 20;
+  text-shadow: 0 0 10px hotpink;
 }
