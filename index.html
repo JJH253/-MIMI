@@ -3,40 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sundari – A Special Dedication</title>
+  <title>Sundari - Tribute</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- 🌈 Colorful glowing background -->
-  <div class="bg-blobs">
-    <div class="blob blob1"></div>
-    <div class="blob blob2"></div>
-    <div class="blob blob3"></div>
+  <div class="background">
+    <canvas id="bgCanvas"></canvas>
+    <div class="color-overlay"></div>
   </div>
-  <div class="light-rays"></div>
 
-  <!-- ✨ Floating hearts and sparkles (animated by JS) -->
-  <div class="particles"></div>
-
-  <!-- 🎬 Main video container -->
-  <div class="card">
-    <video id="mainVideo" autoplay muted loop playsinline>
-      <source src="sundari.mp4" type="video/mp4">
+  <div class="video-container">
+    <video id="mainVideo" playsinline preload="auto" muted autoplay loop>
+      <source src="sundari.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-
-    <!-- 🩷 Overlay Text -->
-    <div class="overlay">
-      <h1 class="title">Sundari</h1>
-      <p class="subtitle">A special dedication filled with rhythm, beauty, and emotion.</p>
+    <div class="overlay-text">
+      <h1>Sundari</h1>
+      <p>Beauty is not just seen… it is felt 💖</p>
     </div>
+    <button id="unmuteBtn">🔊 Tap to hear sound</button>
   </div>
 
-  <!-- 💞 Footer -->
   <footer>
-    <span>Made with love</span>
-    <span class="heart-emoji">💖</span>
+    <p>Made with 💖 and endless vibes</p>
   </footer>
 
   <script src="script.js"></script>
