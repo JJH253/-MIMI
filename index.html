@@ -3,30 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sundari - Tribute</title>
+  <title>Sundari Tribute</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Background hearts -->
   <div class="background">
-    <canvas id="bgCanvas"></canvas>
-    <div class="color-overlay"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
   </div>
 
-  <div class="video-container">
-    <video id="mainVideo" playsinline preload="auto" muted autoplay loop>
-      <source src="sundari.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <div class="overlay-text">
-      <h1>Sundari</h1>
-      <p>Beauty is not just seen… it is felt 💖</p>
-    </div>
-    <button id="unmuteBtn">🔊 Tap to hear sound</button>
+  <!-- Text -->
+  <div class="text-box">
+    <h2 class="glow">✨ A Beautiful Soul ✨</h2>
+    <p class="glow-small">Some people make the world brighter just by being in it.</p>
   </div>
 
-  <footer>
-    <p>Made with 💖 and endless vibes</p>
-  </footer>
+  <!-- Video -->
+  <video id="mainVideo" autoplay loop muted playsinline>
+    <source src="sundari.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Unmute Button -->
+  <button id="unmuteBtn">🔊 Tap to hear sound</button>
+
+  <!-- Footer -->
+  <footer>Made with 💖 and peace</footer>
 
   <script src="script.js"></script>
 </body>
